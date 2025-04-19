@@ -1,5 +1,8 @@
+import BestSeller from "../components/BestSeller"
 import Hero from "../components/Hero"
 import LatestCollection from "../components/LatestCollection"
+import NewsLetterBox from "../components/NewsLetterBox"
+import OurPolicy from "../components/OurPolicy"
 
 
 const Home = () => {
@@ -7,8 +10,11 @@ const Home = () => {
     <div className="">
       <Hero />
       <LatestCollection />
+      <BestSeller />
+      <OurPolicy />
+      <NewsLetterBox />
     </div>
   )
 }
 
-export default Home
+export default Home;
