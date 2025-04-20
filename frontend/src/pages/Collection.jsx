@@ -11,7 +11,7 @@ const Collection = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
-  const [subcategory, setSubcategory] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
 
   const toggleCategory = (e) => {
     if(category.includes(e.target.value)){
@@ -22,18 +22,29 @@ const Collection = () => {
   }
 
   const toggleSubCategory = (e) => {
-    if(subcategory.includes(e.target.value)){
-      setSubcategory(prev => prev.filter(item => item !== e.target.value))
+    if(subCategory.includes(e.target.value)){
+      setSubCategory(prev => prev.filter(item => item !== e.target.value))
     } else {
-      setSubcategory(prev => [...prev,e.target.value])
+      setSubCategory(prev => [...prev,e.target.value])
     }
+  };
+
+  // filter products functions
+  const applyFilter = () => {
+    let productsCopy = products.slice();
+    if(category.length > 0){
+      productsCopy = productsCopy.filter(item => category.includes(item.category));
+    }
+    if(subCategory.length > 0) {
+      productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));
+    }
+    setFilterProducts(productsCopy);
   }
 
   useEffect(()=>{
-    setFilterProducts(products);
-  },[]);
-
-
+    applyFilter();
+  }, [category, subCategory]);
+ 
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
@@ -97,4 +108,4 @@ const Collection = () => {
   )
 }
 
-export default Collection
+export default Collection;
