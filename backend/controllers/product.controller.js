@@ -54,9 +54,26 @@ const listProducts = async (req, res) => {
 }
 
 // remove product
-const removeProduct = async (req, res) => {}
+const removeProduct = async (req, res) => {
+  try {
+    await Product.findByIdAndDelete(req.body.id);
+    res.status(200).json({success: true, message: "post deleted"})
+  } catch (error) {
+    console.log("error in remove product", error);
+    res.status(500).json({success: false, message: error.message});
+  }
+}
 
 // get single product
-const singleProduct = async (req, res) => {}
+const singleProduct = async (req, res) => {
+  try {
+    const {productId} = req.body;
+    const product = await Product.findById(productId);
+    res.status(200).json({success: true, product});
+  } catch (error) {
+    console.log("error in get single product", error);
+    res.status(500).json({success: false, message: error.message});
+  }
+}
 
 export {addProduct, listProducts, removeProduct, singleProduct};

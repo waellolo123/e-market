@@ -11,8 +11,8 @@ router.post("/add", upload.fields([
   {name: "image3", maxCount: 1},
   {name: "image4", maxCount: 1}
 ]), addProduct);
-router.delete("/remove", removeProduct);
-router.get("/single", singleProduct);
+router.post("/remove", removeProduct);
+router.post("/single", singleProduct);
 router.get("/list", listProducts);
 
 export default router;

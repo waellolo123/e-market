@@ -24,3 +24,6 @@ app.use("/api/product", productRouter)
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });
+
+
+// https://www.youtube.com/watch?v=7-NZ0MlPpJA
