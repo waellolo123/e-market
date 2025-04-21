@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { ShopContext } from "../context/shopContext"
 import Title from "../components/Title";
-import { assets } from "../assets/assets";
 
 
 const Orders = () => {
@@ -35,7 +34,7 @@ const Orders = () => {
               <p className="min-w-2 h-2 rounded-full bg-green-500"></p>
               <p className="text-sm md:text-base">Ready to Ship</p>
              </div>
-             <button className="border px-4 py-2 text-sm font-medium ">Track Order</button>
+             <button className="border px-4 py-2 text-sm font-medium cursor-pointer">Track Order</button>
             </div>
           </div>
         ))
