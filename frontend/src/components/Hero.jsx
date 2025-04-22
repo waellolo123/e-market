@@ -1,4 +1,5 @@
-import {assets} from "../assets/assets";
+// import {assets} from "../assets/assets";
+import hero_img1 from "../assets/hero_img1.jpg"
 
 const Hero = () => {
   return (
@@ -18,7 +19,7 @@ const Hero = () => {
       </div>
       </div>
       {/* hero right side */}
-      <img src={assets.hero_img} className="w-full sm:w-1/2" alt="" />
+      <img src={hero_img1} className="w-full h-[300px] object-cover sm:w-1/2 sm:h-[500px] " alt="" />
     </div>
   )
 }
