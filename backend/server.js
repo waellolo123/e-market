@@ -5,6 +5,7 @@ import connectDB from "./config/mongodb.js";
 import connectDloudinary from "./config/cloudinary.js";
 import userRouter from "./routes/user.route.js";
 import productRouter from "./routes/product.route.js";
+import cartRouter from "./routes/cart.route.js";
 
 dotenv.config();
 const app = express();
@@ -18,12 +19,11 @@ app.use(cors());
 
 // endpoints
 app.use("/api/user", userRouter);
-app.use("/api/product", productRouter)
+app.use("/api/product", productRouter);
+app.use("/api/cart", cartRouter);
 
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });
 
-
-// https://www.youtube.com/watch?v=7-NZ0MlPpJA
