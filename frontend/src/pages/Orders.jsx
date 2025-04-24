@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { ShopContext } from "../context/shopContext"
 import Title from "../components/Title";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 const Orders = () => {
@@ -29,9 +30,9 @@ const Orders = () => {
         })
         setOrderData(allOrdersItem.reverse())
       }
-      
     } catch (error) {
-      
+      console.log(error);
+      toast.error(error.message);
     }
   } 
 
@@ -52,13 +53,13 @@ const Orders = () => {
              <img src={item.image[0]} className="w-16 sm:w-20" alt="" /> 
              <div className="">
               <p className="sm:text-base font-medium">{item.name}</p>
-              <div className="flex items-center gap-3 mt-2 text-base text-gray-700">
+              <div className="flex items-center gap-3 text-base text-gray-700">
                 <p>{currency} {item.price}</p>
                 <p>Quantity: {item.quantity}</p>
                 {/* <p>Size: M</p> */}
               </div>
-              <p className="mt-2">Date: <span className="text-gray-400">{new Date(item.date).toDateString()}</span></p>
-              <p className="mt-2">Pyment: <span className="text-gray-400">{item.paymentMethod}</span></p>
+              <p>Date: <span className="text-gray-400">{new Date(item.date).toDateString()}</span></p>
+              <p className="font-semibold">Payment: <span className="text-orange-400">{item.paymentMethod}</span></p>
              </div>
             </div>
             <div className="md:w-1/2 flex justify-between">
